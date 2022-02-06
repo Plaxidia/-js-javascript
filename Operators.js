@@ -135,3 +135,18 @@ console.log( 1 && 2 && 3 ); // 3, the last one
 //The precedence of AND && operator is higher than OR ||.
 
 //So the code a && b || c && d is essentially the same as if the && expressions were in parentheses: (a && b) || (c && d).
+
+
+//!NOT
+result = !value1;
+//The boolean NOT operator is represented with an exclamation sign !.
+//Converts the operand to boolean type: true/false.
+//Returns the inverse value.
+
+//example
+console.log( !true ); // false
+console.log( !0 ); // true
+
+//A double NOT !! is sometimes used for converting a value to boolean type:
+console.log( !!"non-empty string" ); // true
+console.log( !!null ); // false
