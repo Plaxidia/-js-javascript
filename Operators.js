@@ -150,3 +150,52 @@ console.log( !0 ); // true
 //A double NOT !! is sometimes used for converting a value to boolean type:
 console.log( !!"non-empty string" ); // true
 console.log( !!null ); // false
+
+
+
+//Arithmetic Operatores
+
+
+//adding numbers
+//++num Pre increment
+//num++ post increment 
+
+let num =4;
+num =+2;//num =num +2
+console.log (num);//6
+
+//remainder operator %
+
+let num1 =5;
+let num2 =2;
+result  = num1 % num2;
+console.log (result);//remainder 1
+
+//boolean
+//for instance false =0 and true = 1;
+
+let num3 =true;
+let num4 =true ;
+
+
+let result2  = num3 + num4;
+console.log (result2);//2
+
+
+
+//++num Pre increment
+//num++ post increment 
+ num =4;
+let  X =num++;//post increament : therefore the at first num will be assigned to X and then the increament will happen
+console.log (X,num);//4,5
+
+ X =++num;// pre increament :the value of nu mwill be increased first and then assign the value to X
+console.log (X,num);//5,5
+
+//multiplying 
+num =4;
+result2= num1*num2*num3;//num1=2,num2=5,num3=true which is 1(from the code above)
+console.log(result2);//10
+
+result2 =Math.pow(4,2);//4 to the power 2
+console.log(result2);
