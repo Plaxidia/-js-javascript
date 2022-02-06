@@ -50,10 +50,10 @@ console.log( false == 1 ); // false
 
 console.log( 0 == false ); // true
 
-console.log( '' == false ); // true
+console.log( ' ' == false ); // true
 //to  differentiate 0 from false we use ===
 // strict equality operator
 //A strict equality operator === checks the equality without type conversion.
 //In other words, if a and b are of different types, then a === b immediately returns false without an attempt to convert them.
 
-console.log( 0 === false ); // false, because the types are different
+console.log( 0 === false );// false, because the types are different
