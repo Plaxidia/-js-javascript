@@ -30,3 +30,17 @@ console.log( 'Bee' > 'Be' ); // true
 //G is the same as G.
 //l is the same as l.
 //o is greater than e. Stop here. The first string is greater.
+
+
+//Comparison of different types
+//When comparing values of different types, JavaScript converts the values to numbers.
+
+
+console.log( '2' > 1 ); // true, string '2' becomes a number 2
+console.log( '01' == 1 ); // true, string '01' becomes a number 1
+
+//For boolean values, true becomes 1 and false becomes 0.
+
+console.log( true == 1 ); // true
+console.log( false == 0 ); // true
+console.log( false == 1 ); // false
