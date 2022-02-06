@@ -57,3 +57,5 @@ console.log( ' ' == false ); // true
 //In other words, if a and b are of different types, then a === b immediately returns false without an attempt to convert them.
 
 console.log( 0 === false );// false, because the types are different
+
+//There is also a “strict non-equality” operator !== analogous to !=.
