@@ -30,3 +30,14 @@ if (0) { // 0 is falsy
 if (cond) {
   //...
 }
+
+//elese
+//The if statement may contain an optional “else” block. It executes when the condition is falsy.
+
+let year = prompt('In which year Plaxidia started her career?', '');
+
+if (year == 2018) {
+ console.log( 'You guessed it right!' );
+} else {
+  console.log( 'How can you be so wrong?' ); // any value except 2018
+}
