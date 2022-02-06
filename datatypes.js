@@ -7,32 +7,33 @@ let n1=1 / 0;// Infinity
 console.log(n1); 
 console.log (typeof n1);
 
+console.log(Number.MAX_VALUE*10);//this is also infinity
+
 
 
 //----NaN
-
-
 console.log( "not a number" / 2 ); // NaN, such division is erroneous
 console.log( NaN + 1 ); // NaN
 console.log( 3 * NaN ); // NaN
 console.log( "not a number" / 2 - 1 ); //NaN
 
-//-----
 
-//Bigint
+//-------Bigint
 // the "n" at the end means it's a BigInt
 const bigInt = 1234567890123456789012345678901234567890n;
 
-//-----String datatype 
+//-----String datatype  
 
-let user ="hello";//String 
-
-let str = "Hello";
+let str = "Hello";//String 
 let str2 = 'Single quotes are ok too';
 let phrase = `can embed another ${str}`;
 
 let name = "John";
+let Plax =" Maka dii \" uko\""// escape character >>using a string inside a string 
+let user = str +" " +str2;// >>Hello Single quotes are ok too
 
+
+str2 = 'Plaxida \n Hove ';// >> it is printed of seperate lines.
 // embed a variable
 console.log( `Hello, ${name}!` ); // Hello, John!
 
@@ -47,7 +48,7 @@ let ageFieldChecked = false; // no, age field is not checked
 let isGreater = 4 > 1;
 
 console.log( isGreater ); // true (the comparison result is "yes")
-
+console.log(typeof isGreater);
 //The Undefined Data Type
 let  a;
 let  b = "Hello World!"
