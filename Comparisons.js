@@ -58,4 +58,35 @@ console.log( ' ' == false ); // true
 
 console.log( 0 === false );// false, because the types are different
 
-//There is also a “strict non-equality” operator !== analogous to !=.
+//There is also a “strict non-equality” operator !== analogous to !=
+
+
+//Comparison with null and undefined
+//There’s a non-intuitive behavior when null or undefined are compared to other values.
+
+//For a strict equality check ===
+
+console.log( null === undefined ); // false
+
+//For a non-strict check ==
+
+console.log( null == undefined ); // true
+
+//For maths and other comparisons < > <= >=
+//null/undefined are converted to numbers: null becomes 0, while undefined becomes NaN.
+
+//Strange result: null vs 0
+
+console.log( null > 0 );  // (1) false
+console.log( null == 0 ); // (2) false
+console.log( null >= 0 ); // (3) true
+
+//Comparisons convert null to a number, treating it as 0. That’s why (3) null >= 0 is true and (1) null > 0 is false.
+
+//An incomparable undefined
+
+//The value undefined shouldn’t be compared to other values:
+
+console.log( undefined > 0 ); // false (1)
+console.log( undefined < 0 ); // false (2)
+console.log( undefined == 0 ); // false (3)
