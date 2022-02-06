@@ -128,3 +128,10 @@ console.log( 1 && 2 && null && 3 ); // null
 
 //When all values are truthy, the last value is returned:
 console.log( 1 && 2 && 3 ); // 3, the last one
+
+
+
+//Precedence of AND && is higher than OR ||
+//The precedence of AND && operator is higher than OR ||.
+
+//So the code a && b || c && d is essentially the same as if the && expressions were in parentheses: (a && b) || (c && d).
