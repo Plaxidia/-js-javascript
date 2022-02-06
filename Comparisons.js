@@ -44,3 +44,16 @@ console.log( '01' == 1 ); // true, string '01' becomes a number 1
 console.log( true == 1 ); // true
 console.log( false == 0 ); // true
 console.log( false == 1 ); // false
+
+//Strict equality
+//A regular equality check == has a problem. It cannot differentiate 0 from false:
+
+console.log( 0 == false ); // true
+
+console.log( '' == false ); // true
+//to  differentiate 0 from false we use ===
+// strict equality operator
+//A strict equality operator === checks the equality without type conversion.
+//In other words, if a and b are of different types, then a === b immediately returns false without an attempt to convert them.
+
+console.log( 0 === false ); // false, because the types are different
