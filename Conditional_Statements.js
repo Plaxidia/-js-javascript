@@ -4,9 +4,9 @@
 //The “if” statement
 //The if(...) statement evaluates a condition in parentheses and, if the result is true, executes a block of code.
 
-let year = prompt('In which year was ECMAScript-2021 specification published?', '');
+let year = prompt('In which year was ECMAScript-2021 specification published?');
 
-if (year == 2021)
+if ( year== "2021")
 {
 console.log( 'You are right!' );
 console.log( "You're so smart!" );
@@ -34,10 +34,22 @@ if (cond) {
 //elese
 //The if statement may contain an optional “else” block. It executes when the condition is falsy.
 
-let year = prompt('In which year Plaxidia started her career?', '');
+ year = 'In which year Plaxidia started her career?', '';
 
 if (year == 2018) {
  console.log( 'You guessed it right!' );
 } else {
   console.log( 'How can you be so wrong?' ); // any value except 2018
+}
+
+//else if 
+
+year = prompt('In which year was the ECMAScript-2015 specification published?', '');
+
+if (year < 2015) {
+ console.log( 'Too early...' );
+} else if (year > 2015) {
+    console.log( 'Too late' );
+} else {
+    console.log( 'Exactly!' );
 }
