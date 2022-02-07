@@ -199,3 +199,28 @@ console.log(result2);//10
 
 result2 =Math.pow(4,2);//4 to the power 2
 console.log(result2);
+
+//Conditional operator ‘?’
+//Sometimes, we need to assign a variable depending on a condition.
+let accessAllowed;
+let age = prompt('How old are you?', '');
+
+if (age > 18) {
+  accessAllowed = true;
+} else {
+  accessAllowed = false;
+}
+
+console.log(accessAllowed);
+//The so-called “conditional” or “question mark” operator lets us do that in a shorter and simpler way.
+
+let result = condition ? value1 : value2;//The condition is evaluated: if it’s truthy then value1 is returned, otherwise – value2.
+
+accessAllowed = (age > 18) ? true : false;
+
+//Technically, we can omit the parentheses around age > 18. The question mark operator has a low precedence, so it executes after the comparison >.
+
+// the comparison operator "age > 18" executes first anyway
+// (no need to wrap it into parentheses)
+let accessAllowed = age > 18 ? true : false;//we can avoid usig question mark operator because the comparison itself returns true/false:
+
