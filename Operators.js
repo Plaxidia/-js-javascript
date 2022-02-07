@@ -239,3 +239,21 @@ let message = (age < 3) ? 'Hi, baby!' ://The first question mark checks whether 
 
 console.log(message );
 
+
+//Non-traditional use of ‘?’
+//Sometimes the question mark ? is used as a replacement for if:
+
+let company = prompt('Which company created JavaScript?', '');
+
+(company == 'Netscape') ?
+  console.log('Right!') : alert('Wrong.');
+
+
+  //using if else in place of  ??
+ company = prompt('Which company created JavaScript?', '');
+
+if (company == 'Netscape') {
+  alert('Right!');
+} else {
+  alert('Wrong.');
+}
