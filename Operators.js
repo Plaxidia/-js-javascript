@@ -224,3 +224,18 @@ accessAllowed = (age > 18) ? true : false;
 // (no need to wrap it into parentheses)
 let accessAllowed = age > 18 ? true : false;//we can avoid usig question mark operator because the comparison itself returns true/false:
 
+//Multiple ‘?’
+
+age = prompt('age?', 18);
+
+let message = (age < 3) ? 'Hi, baby!' ://The first question mark checks whether age < 3.
+//If true – it returns 'Hi, baby!'. Otherwise, it continues to the expression after the colon ‘":"’, checking age < 18.
+  (age < 18) ? 'Hello!' :
+  //If that’s true – it returns 'Hello!'. Otherwise, it continues to the expression after the next colon ‘":"’, checking age < 100.
+
+  (age < 100) ? 'Greetings!' :
+  //If that’s true – it returns 'Greetings!'. Otherwise, it continues to the expression after the last colon ‘":"’, returning 'What an unusual age!'.
+  'What an unusual age!';
+
+console.log(message );
+
