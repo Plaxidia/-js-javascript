@@ -28,9 +28,8 @@ switch(day) {
     case "Sunday":
         console.log("8 am");
         break;
-        
-}
-break;
-
-console.log("Week day does not exist");
+    default  : 
+    console.log("Week day does not exist");
     
+}
+console.log("Bye......,Enjoy your day");
