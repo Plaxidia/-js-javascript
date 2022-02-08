@@ -44,3 +44,20 @@ do {
   console.log( i );
   i++;
 } while (i < 3);
+
+//For loop
+//The for loop is more complex, but it’s also the most commonly used loop.
+
+for (begin; condition; step) {
+    // ... loop body ...
+  }
+		
+//begin	let i = 0	Executes once upon entering the loop.
+//condition	i < 3	Checked before every loop iteration. If false, the loop stops.
+//body	console.log(i)	Runs again and again while the condition is truthy.
+//step	i++	Executes after the body on each iteration.
+
+
+  for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
+    console.log(i);
+  }
