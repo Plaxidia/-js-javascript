@@ -61,3 +61,18 @@ for (begin; condition; step) {
   for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
     console.log(i);
   }
+
+  //Breaking the loop
+let sum = 0;
+
+while (true) {
+
+  let value = +prompt("Enter a number", '');
+
+  if (!value) break; // (*)
+
+  sum += value;
+
+}
+console.log( 'Sum: ' + sum );
+//The break directive is activated at the line (*) if the user enters an empty line or cancels the input. It stops the loop immediately, passing control to the first line after the loop.
