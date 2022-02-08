@@ -76,3 +76,17 @@ while (true) {
 }
 console.log( 'Sum: ' + sum );
 //The break directive is activated at the line (*) if the user enters an empty line or cancels the input. It stops the loop immediately, passing control to the first line after the loop.
+
+
+//Continue to the next iteration
+//The continue directive is a “lighter version” of break. It doesn’t stop the whole loop. Instead, it stops the current iteration and forces the loop to start a new one (if the condition allows).
+
+//The loop below uses continue to output only odd values:
+
+for (let i = 0; i < 10; i++) {
+
+    // if true, skip the remaining part of the body
+    if (i % 2 == 0) continue;
+  
+    console.log(i); // 1, then 3, 5, 7, 9
+  }
