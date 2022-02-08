@@ -246,10 +246,14 @@ console.log(message );
 let company = prompt('Which company created JavaScript?', '');
 
 (company == 'Netscape') ?
-  console.log('Right!') : alert('Wrong.');
+  console.log('Right!') :    console.log('Wrong.');
 
+  //another example 
 
-  //using if else in place of  ??
+result = num%2===0 ?"Even":"odd"
+console.log(result)
+
+  //using if else in place of  ?:
  company = prompt('Which company created JavaScript?', '');
 
 if (company == 'Netscape') {
