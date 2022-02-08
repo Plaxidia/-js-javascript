@@ -58,7 +58,7 @@ for (begin; condition; step) {
 //step	i++	Executes after the body on each iteration.
 
 
-  for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
+  for ( i = 0; i < 3; i++) { // shows 0, then 1, then 2
     console.log(i);
   }
 
@@ -83,10 +83,59 @@ console.log( 'Sum: ' + sum );
 
 //The loop below uses continue to output only odd values:
 
-for (let i = 0; i < 10; i++) {
+for ( i = 0; i < 10; i++) {
 
     // if true, skip the remaining part of the body
     if (i % 2 == 0) continue;
   
     console.log(i); // 1, then 3, 5, 7, 9
+  }
+
+  //Labels for break/continue
+
+  //A label is an identifier with a colon before a loop:
+  labelName: for ( i = 0; i < 3; i++) 
+  {
+  //...
+  }
+
+  //The break <labelName> statement in the loop below breaks out to the label:
+
+  outer: for ( i = 0; i < 3; i++) {
+
+    for (let j = 0; j < 3; j++) {
+  
+      let input = prompt(`Value at coords (${i},${j})`, '');
+  
+      // if an empty string or canceled, then break out of both loops
+      if (!input) break outer; // (*)
+  
+      // do something with the value...
+    }
+  }
+    console.log('Done!');
+
+   // In the code above, break outer looks upwards for the label named outer and breaks out of that loop.
+
+   // So the control goes straight from (*) to alert('Done!').
+
+   //We can also move the label onto a separate line:
+   
+   outer:
+for ( i = 0; i < 3; i++) { 
+    //... 
+}
+
+
+//Labels do not allow to “jump” anywhere
+//For example, it is impossible to do this:
+break label; // jump to the label below (doesn't work)
+
+label: for (  i = 0; i < 3; i++);
+//A break directive must be inside a code block. Technically, any labelled code block will do, e.g.:
+
+label: {
+    // ...
+    break label; // works
+    // ...
   }
