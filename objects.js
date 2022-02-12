@@ -37,3 +37,75 @@ delete user.age;
 
   //That is called a “trailing” or “hanging” comma. Makes it easier to add/remove/move around properties, because all lines become alike.
 
+  //Square brackets
+
+  //for multiword properties, the dot access doesn’t work:
+
+  // this would give a syntax error
+  user.likes birds = true
+
+  // “square bracket notation”
+
+  user = {};
+
+  // set
+  user["likes birds"] = true;
+  
+  // get
+ console.log(user["likes birds"]); // true
+  
+  // delete
+  delete user["likes birds"];
+
+  //Please note that the string inside the brackets is properly quoted (any type of quotes will do).
+  //Here, the variable key may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility.
+
+   key = "likes birds";
+
+  // same as user["likes birds"] = true;
+   user[key] = true;
+
+   //example
+    user = {
+    name: "John",
+    age: 30
+  };
+  
+  let key = prompt("What do you want to know about the user?", "name");
+  
+  // access by variable
+  console.log( user[key] ); // John (if enter "name")
+
+  //The dot notation cannot be used in a similar way:
+
+
+    user = {
+    name: "John",
+    age: 30
+  };
+  
+  key = "name";
+   console.log( user.key ) // undefined
+  
+//Computed properties
+
+//We can use square brackets in an object literal, when creating an object. That’s called computed properties.
+
+let fruit = prompt("Which fruit to buy?", "apple");
+
+let bag = {
+  [fruit]: 5, // the name of the property is taken from the variable fruit
+};
+
+console.log( bag.apple ); // 5 if fruit="apple"
+//The meaning of a computed property is simple: [fruit] means that the property name should be taken from fruit.
+
+
+//So, if a visitor enters "apple", bag will become {apple: 5}.
+//Essentially, that works the same as:
+
+let fruit = prompt("Which fruit to buy?", "apple");
+let bag = {};
+
+// take property name from the fruit variable
+bag[fruit] = 5;
