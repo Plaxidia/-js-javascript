@@ -42,7 +42,8 @@ delete user.age;
   //for multiword properties, the dot access doesn’t work:
 
   // this would give a syntax error
-  user.likes birds = true
+
+ //>> user.likes birds = true
 
   // “square bracket notation”
 
@@ -109,3 +110,17 @@ let bag = {};
 
 // take property name from the fruit variable
 bag[fruit] = 5;
+
+//Property value shorthand
+
+function makeUser(name, age) {
+    return {
+      name: name,
+      age: age,
+      // ...other properties
+    };
+  }
+  
+  let user = makeUser("John", 30);
+  console.log(user.name); // John
+  
