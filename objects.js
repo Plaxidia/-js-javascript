@@ -43,6 +43,8 @@ delete user.age;
 
   // this would give a syntax error
 
+  // example below
+
  //>> user.likes birds = true
 
   // “square bracket notation”
@@ -61,7 +63,7 @@ delete user.age;
   //Please note that the string inside the brackets is properly quoted (any type of quotes will do).
   //Here, the variable key may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility.
 
-   key = "likes birds";
+   let key = "likes birds";
 
   // same as user["likes birds"] = true;
    user[key] = true;
@@ -72,7 +74,7 @@ delete user.age;
     age: 30
   };
   
-  let key = prompt("What do you want to know about the user?", "name");
+  key = prompt("What do you want to know about the user?", "name");
   
   // access by variable
   console.log( user[key] ); // John (if enter "name")
@@ -123,4 +125,22 @@ function makeUser(name, age) {
   
   let user = makeUser("John", 30);
   console.log(user.name); // John
+
   
+  //Instead of name:name we can just write name, like this:
+
+
+  function makeUser(name, age) {
+    return {
+      name, // same as name: name
+      age,  // same as age: age
+      // ...
+    };
+  }
+
+  //We can use both normal properties and shorthands in the same object:
+
+   user = {
+    name ,  // same as name:name
+    age: 30
+  };
