@@ -175,3 +175,72 @@ console.log( obj[0] ); // test (same property)
 obj = {};
 obj.__proto__ = 5; // assign a number
 console.log(obj.__proto__); // [object Object] - the value is an object, didn't work as intended
+
+//Property existence test, “in” operator
+
+//Reading a non-existing property just returns undefined. So we can easily test whether the property exists:
+ user = {};
+
+console.log( user.noSuchProperty === undefined ); // true means "no such property"
+
+//There’s also a special operator "in" for that.
+
+//The syntax is:
+
+"key" in object
+
+//For instance:
+
+ user = { name: "John", age: 30 };
+
+console.log( "age" in user ); // true, user.age exists
+console.log( "blabla" in user ); // false, user.blabla doesn't exist
+
+//Please note that on the left side of in there must be a property name. That’s usually a quoted string.
+//If we omit quotes, that means a variable, it should contain the actual name to be tested. For instance:
+
+
+ user = { age: 30 };
+
+ key = "age";
+console.log( key in user ); // true, property "age" exists
+
+let obj = {
+  test: undefined
+};
+
+console.log( obj.test ); // it's undefined, so - no such property?
+
+console.log( "test" in obj ); // true, the property does exist!
+
+//In the code above, the property obj.test technically exists. So the in operator works right.
+
+//Situations like this happen very rarely, because undefined should not be explicitly assigned. We mostly use null for “unknown” or “empty” values. So the in operator is an exotic guest in the code.
+
+
+//The “for…in” loop
+//To walk over all keys of an object, there exists a special form of the loop: for..in. This is a completely different thing from the for(;;) 
+
+//The syntax:
+for (key in object) {
+  // executes the body for each key among object properties
+}
+
+//For instance, let’s output all properties of user:
+
+ user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+
+for (let key in user) {
+  // keys
+  console.log( key );  // name, age, isAdmin
+  // values for the keys
+  console.log( user[key] ); // John, 30, true
+}
+
+// all “for” constructs allow us to declare the looping variable inside the loop, like let key here
+//Also, we could use another variable name here instead of key. For instance, "for (let prop in obj)" is also widely used.
+
