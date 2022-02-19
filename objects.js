@@ -271,7 +271,7 @@ let Programmer = {
     brand :"macOs"
   }
 }
-console.log(Programmer);
+
 console.log(Programmer.tech);//output js
 console.log(Programmer.laptop.brand);//output MacOs
 //find the length
@@ -281,3 +281,4 @@ console.log(Programmer.laptop.brand.length);
 console.log(Programmer.laptop.brand1?.length);// output undefined 
 //deleting the property
 delete Programmer.laptop,// the laptop object will be missing in the out put because it has been deleted 
+console.log(Programmer);
