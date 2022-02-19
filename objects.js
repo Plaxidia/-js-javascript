@@ -244,3 +244,40 @@ for (let key in user) {
 // all “for” constructs allow us to declare the looping variable inside the loop, like let key here
 //Also, we could use another variable name here instead of key. For instance, "for (let prop in obj)" is also widely used.
 
+//Ordered like an object
+//“ordered in a special fashion”: integer properties are sorted, others appear in creation order. The details follow.
+//As an example, let’s consider an object with the phone codes:
+
+
+let codes = {
+  "49": "Germany",
+  "41": "Switzerland",
+  "44": "Great Britain",
+  // ..,
+  "1": "USA"
+};
+
+for (let code in codes) {
+ console.log(code); // 1, 41, 44, 49
+}
+//examples #practise
+
+let Programmer = {
+  name :"Plax",
+  tech:"js",
+  laptop: {//object inside object
+    cpu:i7,
+    ram :4,
+    brand :"macOs"
+  }
+}
+console.log(Programmer);
+console.log(Programmer.tech);//output js
+console.log(Programmer.laptop.brand);//output MacOs
+//find the length
+console.log(Programmer.laptop.brand.length);
+//if we dont have the brand1 variable you can use the question mark like as presented below
+
+console.log(Programmer.laptop.brand1?.length);// output undefined 
+//deleting the property
+delete Programmer.laptop,// the laptop object will be missing in the out put because it has been deleted 
