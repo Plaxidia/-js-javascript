@@ -66,3 +66,28 @@ function showMessage2() {
 showMessage2();
 
 console.log( userName2 ); // John, unchanged, the function did not access the outer variable
+
+//Parameters
+//We can pass arbitrary data to functions using parameters.
+// below, the function has two parameters: from and text.
+
+function showMessage4(from, text) { // parameters: from, text
+    console.log(from + ': ' + text);
+  }
+  
+  showMessage4('Plaxidia', 'Hello!'); // Plaxidia: Hello! (*)
+  showMessage4('Plaxidia', "What's up?"); // Plaxidia: What's up? (**)
+  //Another example
+  function showMessage5(from1, text2) {
+
+    from1 = '*' + from1 + '*'; // make "from1" look nicer
+  
+    console.log( from1 + ': ' + text2 );
+  }
+  
+  let from2 = "Ann";
+  
+  showMessage(from2, "Hello"); // *Ann*: Hello
+  
+  // the value of "from" is the same, the function modified a local copy
+  console.log( from2 ); // Ann
