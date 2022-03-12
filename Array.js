@@ -52,3 +52,45 @@ array[3](); // hello
 
 //Methods pop/push, shift/unshift
 //Methods that work with the end of the array:
+
+//POP
+//Extracts the last element of the array and returns it:
+
+fruits = ["Apple", "Orange", "Pear"];
+
+console.log( fruits.pop() ); // remove "Pear" and alert it
+
+console.log( fruits ); // Apple, Orange
+//PUSH
+//Append the element to the end of the array:
+fruits = ["Apple", "Orange"];
+
+fruits.push("Pear");
+
+console.log( fruits ); // Apple, Orange, Pear
+//The call fruits.push(...) is equal to fruits[fruits.length] = ....
+
+//Methods that work with the beginning of the array:
+//SHIFT
+let fruits = ["Apple", "Orange", "Pear"];
+
+console.log( fruits.shift() ); // remove Apple and alert it
+
+console.log( fruits ); // Orange, Pear
+
+//ushift
+//Add the element to the beginning of the array:
+fruits = ["Orange", "Pear"];
+
+fruits.unshift('Apple');
+
+console.log( fruits ); // Apple, Orange, Pear
+
+//Methods push and unshift can add multiple elements at once:
+fruits = ["Apple"];
+
+fruits.push("Orange", "Peach");
+fruits.unshift("Pineapple", "Lemon");
+
+// ["Pineapple", "Lemon", "Apple", "Orange", "Peach"]
+console.log( fruits );
