@@ -94,3 +94,78 @@ fruits.unshift("Pineapple", "Lemon");
 
 // ["Pineapple", "Lemon", "Apple", "Orange", "Peach"]
 console.log( fruits );
+
+//Internals
+
+let fruits = ["Banana"]
+
+let arr = fruits; // copy by reference (two variables reference the same array)
+
+console.log( arr === fruits ); // true
+
+arr.push("Pear"); // modify the array by reference
+
+console.log( fruits ); // Banana, Pear - 2 items now
+
+
+//LOOPS 
+//One of the oldest ways to cycle array items is the for loop over indexes:
+
+let arr = ["Apple", "Orange", "Pear"];
+
+for (let i = 0; i < arr.length; i++) {
+  console.log( arr[i] );
+}
+//But for arrays there is another form of loop, for..of:
+
+fruits = ["Apple", "Orange", "Plum"];
+
+// iterates over array elements
+for (let fruit of fruits) {
+  console.log( fruit );
+}
+
+//The for..of doesn’t give access to the number of the current element, just its value, but in most cases that’s enough. And it’s shorter.
+//Technically, because arrays are objects, it is also possible to use for..in:
+
+let arr = ["Apple", "Orange", "Pear"];
+
+for (let key in arr) {
+  console.log( arr[key] ); // Apple, Orange, Pear
+}
+//A word about “length”
+//The length property automatically updates when we modify the array. To be precise, it is actually not the count of values in the array, but the greatest numeric index plus one.
+
+//example
+
+let fruits = [];
+fruits[123] = "Apple";
+
+console.log( fruits.length ); // 124
+//but we don't usually use the array this way
+//If we increase it manually, nothing interesting happens. But if we decrease it, the array is truncated. The process is irreversible,
+// here’s the example:
+
+ arr = [1, 2, 3, 4, 5];
+
+arr.length = 2; // truncate to 2 elements
+console.log( arr ); // [1, 2]
+
+arr.length = 5; // return length back
+console.log( arr[3] ); // undefined: the values do not return
+
+
+//So, the simplest way to clear the array is: arr.length = 0;.
+
+//new Array()
+let arr = new Array("Apple", "Pear", "etc");
+//If new Array is called with a single argument which is a number, then it creates an array without items, but with the given length.
+
+let arr = new Array(2); // will it create an array of [2] ?
+
+console.log( arr[0] ); // undefined! no elements.
+
+console.log( arr.length ); // length 2
+
+//To avoid such surprises, we usually use square brackets, unless we really know what we’re doing.
+
