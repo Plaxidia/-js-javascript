@@ -169,3 +169,42 @@ console.log( arr.length ); // length 2
 
 //To avoid such surprises, we usually use square brackets, unless we really know what we’re doing.
 
+//Multidimensional arrays
+
+//Arrays can have items that are also arrays. We can use it for multidimensional arrays, for example to store matrices:
+
+let matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ];
+  
+  console.log( matrix[1][1] ); // 5, the central element
+
+
+  //toString
+  //Arrays have their own implementation of toString method that returns a comma-separated list of elements.
+
+  let arr = [1, 2, 3];
+
+   console.log(arr ); // 1,2,3
+   console.log( String(arr) === '1,2,3' ); // true
+
+   //another example
+   console.log( [] + 1 ); // "1"
+   console.log( [1] + 1 ); // "11"
+   console.log( [1,2] + 1 ); // "1,21"
+   //Arrays do not have Symbol.toPrimitive, neither a viable valueOf, they implement only toString conversion, so here [] becomes an empty string, [1] becomes "1" and [1,2] becomes "1,2".
+
+   //When the binary plus "+" operator adds something to a string, it converts it to a string as well, so the next step looks like this:
+   console.log( "" + 1 ); // "1"
+   console.log( "1" + 1 ); // "11"
+   console.log( "1,2" + 1 ); // "1,21"
+
+   //Don’t compare arrays with ==
+
+   //Arrays in JavaScript, unlike some other programming languages, shouldn’t be compared with operator ==.
+   console.log( [] == [] ); // false
+   console.log( [0] == [0] ); // false
+ 
+
