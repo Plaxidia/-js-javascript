@@ -5,7 +5,7 @@
 //But quite often we find that we need an ordered collection, where we have a 1st, a 2nd, a 3rd element and so on. For example, we need that to store a list of something: users, goods, HTML elements etc.
 //Declaration
 let arr = new Array();
-let arr = [];
+ arr = [];
 //Almost all the time, the second syntax is used. We can supply initial elements in the brackets:
 let fruits = ["Apple", "Orange", "Plum"];
 
@@ -99,9 +99,9 @@ console.log( fruits );
 
 let fruits = ["Banana"]
 
-let arr = fruits; // copy by reference (two variables reference the same array)
+let arry = fruits; // copy by reference (two variables reference the same array)
 
-console.log( arr === fruits ); // true
+console.log( arry === fruits ); // true
 
 arr.push("Pear"); // modify the array by reference
 
@@ -111,7 +111,7 @@ console.log( fruits ); // Banana, Pear - 2 items now
 //LOOPS 
 //One of the oldest ways to cycle array items is the for loop over indexes:
 
-let arr = ["Apple", "Orange", "Pear"];
+ arr = ["Apple", "Orange", "Pear"];
 
 for (let i = 0; i < arr.length; i++) {
   console.log( arr[i] );
@@ -128,7 +128,7 @@ for (let fruit of fruits) {
 //The for..of doesn’t give access to the number of the current element, just its value, but in most cases that’s enough. And it’s shorter.
 //Technically, because arrays are objects, it is also possible to use for..in:
 
-let arr = ["Apple", "Orange", "Pear"];
+ arr = ["Apple", "Orange", "Pear"];
 
 for (let key in arr) {
   console.log( arr[key] ); // Apple, Orange, Pear
