@@ -51,3 +51,42 @@ function pow(x, n) {
     return (n == 1) ? x : (x * pow(x, n - 1));
   }
 //The execution context and stack
+//The information about the process of execution of a running function is stored in its execution context.
+//The execution context is an internal data structure that contains details about the execution of a function: where the control flow is now, the current variables, the value of this (we don’t use it here) and few other internal details.
+//When a function makes a nested call, the following happens:
+//-The current function is paused.
+//-The execution context associated with it is remembered in a special data structure called execution context stack.
+//-The nested call executes.
+//After it ends, the old execution context is retrieved from the stack, and the outer function is resumed from where it stopped.
+
+
+//WHAT HAPPENS DURING THE pow(2,3)
+//In the beginning of the call pow(2, 3) the execution context will store variables: x = 2, n = 3, the execution flow is at line 1 of the function.
+//That’s when the function starts to execute. The condition n == 1 is falsy, so the flow continues into the second branch of if:
+
+function pow(x, n) {
+    if (n == 1) {
+      return x;
+    } else {
+      return x * pow(x, n - 1);
+    }
+  }
+  
+  console.log( pow(2, 3) );
+  //To calculate x * pow(x, n - 1), we need to make a subcall of pow with new arguments pow(2, 2).
+
+
+  
+//The exit
+//During the execution of pow(2, 1), unlike before, the condition n == 1 is truthy, so the first branch of if works:
+function pow(x, n) {
+    if (n == 1) {
+      return x;
+    } else {
+      return x * pow(x, n - 1);
+    }
+  }
+  //There are no more nested calls, so the function finishes, returning 2.
+
+
+  
