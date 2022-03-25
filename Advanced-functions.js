@@ -169,3 +169,53 @@ For better understanding, we’ll cover one more recursive structure named “Li
 */
 
 
+//Linked list
+//Imagine, we want to store an ordered list of objects.
+
+//The natural choice would be an array:
+let arr = [obj1, obj2, obj3];
+
+//The linked list element is recursively defined as an object with:
+
+//-value.
+//-next property referencing the next linked list element or null if that’s the end.
+//example 
+let list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
+//An alternative code for creation:
+list = { value: 1 };
+list.next = { value: 2 };
+list.next.next = { value: 3 };
+list.next.next.next = { value: 4 };
+list.next.next.next.next = null;
+//The list can be easily split into multiple parts and later joined back:
+
+let secondList = list.next.next;
+list.next.next = null;
+//to join 
+list.next.next = secondList;
+
+//And surely we can insert or remove items in any place.
+
+//For instance, to prepend a new value, we need to update the head of the list:
+list = { value: 1 };
+list.next = { value: 2 };
+list.next.next = { value: 3 };
+list.next.next.next = { value: 4 };
+
+// prepend the new value to the list
+list = { value: "new item", next: list };
+//To remove a value from the middle, change next of the previous one:
+list.next = list.next.next;
+//We made list.next jump over 1 to value 2. The value 1 is now excluded from the chain. If it’s not stored anywhere else, it will be automatically removed from the memory.
