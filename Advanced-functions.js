@@ -89,4 +89,61 @@ function pow(x, n) {
   //There are no more nested calls, so the function finishes, returning 2.
 
 
+  //Recursive traversals
+  //Another great application of the recursion is a recursive traversal.
+  //Imagine, we have a company. The staff structure can be presented as an object:
+
+  let company = {
+    sales: [{
+      name: 'John',
+      salary: 1000
+    }, {
+      name: 'Alice',
+      salary: 1600
+    }],
+  
+    development: {
+      sites: [{
+        name: 'Peter',
+        salary: 2000
+      }, {
+        name: 'Alex',
+        salary: 1800
+      }],
+  
+      internals: [{
+        name: 'Jack',
+        salary: 1300
+      }]
+    }
+  };
+  //In other words, a company has departments.
+  //-A department may have an array of staff. For instance, sales department has 2 employees: John and Alice.
+  //-Or a department may split into subdepartments, like development has two branches: sites and internals. Each of them has their own staff.
+  //-It is also possible that when a subdepartment grows, it divides into subsubdepartments (or teams).
+  //-For instance, the sites department in the future may be split into teams for siteA and siteB. And they, potentially, can split even more. That’s not on the picture, just something to have in mind
+  //Let’s try recursion.
+
+  let ccompany = { // the same object, compressed for brevity
+    sales: [{name: 'John', salary: 1000}, {name: 'Alice', salary: 1600 }],
+    development: {
+      sites: [{name: 'Peter', salary: 2000}, {name: 'Alex', salary: 1800 }],
+      internals: [{name: 'Jack', salary: 1300}]
+    }
+  };
+  
+  // The function to do the job
+  function sumSalaries(department) {
+    if (Array.isArray(department)) { // case (1)
+      return department.reduce((prev, current) => prev + current.salary, 0); // sum the array
+    } else { // case (2)
+      let sum = 0;
+      for (let subdep of Object.values(department)) {
+        sum += sumSalaries(subdep); // recursively call for subdepartments, sum the results
+      }
+      return sum;
+    }
+  }
+  
+  console.log(sumSalaries(company)); // 770054321
   
