@@ -49,3 +49,25 @@ function showName(firstName, lastName, ...titles) {
   showName("Julius", "Caesar", "Consul", "Imperator");
 
   //The ...rest must always be last.
+  //The “arguments” variable
+
+  //There is also a special array-like object named arguments that contains all arguments by their index.
+  //For instance:
+
+  function showName() {
+    console.log( arguments.length );
+    console.log( arguments[0] );
+    console.log( arguments[1] );
+  
+    // it's iterable
+    // for(let arg of arguments) alert(arg);
+  }
+  
+  // shows: 2, Julius, Caesar
+  showName("Julius", "Caesar");
+  
+  // shows: 1, Ilya, undefined (no second argument)
+  showName("Ilya");
+  //Arrow functions do not have "arguments"
+
+  //If we access the arguments object from an arrow function, it takes them from the outer “normal” function
