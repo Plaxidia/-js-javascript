@@ -71,3 +71,10 @@ function showName(firstName, lastName, ...titles) {
   //Arrow functions do not have "arguments"
 
   //If we access the arguments object from an arrow function, it takes them from the outer “normal” function
+  
+  function f() {
+  let showArg = () => alert(arguments[0]);
+  showArg();
+}
+
+f(1); // 1
