@@ -78,3 +78,91 @@ function showName(firstName, lastName, ...titles) {
 }
 
 f(1); // 1
+
+//Spread syntax
+/*
+We’ve just seen how to get an array from the list of parameters.
+
+But sometimes we need to do exactly the reverse.
+
+For instance, there’s a built-in function Math.max that returns the greatest number from a list:
+*/
+console.log( Math.max(3, 5, 1) ); // 5
+
+/*
+ let’s say we have an array [3, 5, 1]. so how do  we call Math.max with it?
+
+Passing it “as is” won’t work, because Math.max expects a list of numeric arguments, not a single array:
+*/
+let arr = [3, 5, 1];
+
+console.log( Math.max(arr) ); // NaN
+
+//Spread syntax to the rescue! It looks similar to rest parameters, also using ..., but does quite the opposite.
+//When ...arr is used in the function call, it “expands” an iterable object arr into the list of arguments.
+//For Math.max:
+
+let arry = [3, 5, 1];
+
+console.log( Math.max(...arry) ); // 5 (spread turns array into a list of arguments)
+
+//We also can pass multiple iterables this way:
+
+//Variable scope, closure
+//JavaScript is a very function-oriented language. It gives us a lot of freedom. A function can be created at any moment, passed as an argument to another function, and then called from a totally different place of code later.
+
+//Code blocks
+//If a variable is declared inside a code block {...}, it’s only visible inside that block.
+
+//For example:
+{
+  // do some job with local variables that should not be seen outside
+
+  let message = "Hello"; // only visible in this block
+
+  console.log(message); // Hello
+}
+
+console.log(message); // Error: message is not defined
+//We can use this to isolate a piece of code that does its own task, with variables that only belong to it:
+
+{
+  // show message
+  let message = "Hello";
+  console.log(message);
+}
+
+{
+  // show another message
+  let message = "Goodbye";
+  console.log(message);
+
+}
+//Please note, without separate blocks there would be an error, if we use let with the existing variable name:
+// show message
+let message1 = "Hello";
+console.log(message);
+
+// show another message
+let message1 = "Goodbye"; // Error: variable already declared
+console.log(message);
+
+//For if, for, while and so on, variables declared in {...} are also only visible inside:
+
+if (true) {
+  let phrase = "Hello!";
+
+  console.log(phrase); // Hello!
+}
+
+console.log(phrase); // Error, no such variable!
+//The similar thing holds true for for and while loops:
+
+for (let i = 0; i < 3; i++) {
+  // the variable i is only visible inside this for
+  console.log(i); // 0, then 1, then 2
+}
+
+console.log(i); // Error, no such variable
+//Visually, let i is outside of {...}. But the for construct is special here: the variable, declared inside it, is considered a part of the block.
+
