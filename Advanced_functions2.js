@@ -198,3 +198,75 @@ let counter = makeCounter();
 alert( counter() ); // 0
 alert( counter() ); // 1
 alert( counter() ); // 2
+//Lexical Environment
+//In JavaScript, every running function, code block {...}, and the script as a whole have an internal (hidden) associated object known as the Lexical Environment.
+
+
+//Environment Record – an object that stores all local variables as its properties (and some other information like the value of this).
+//A reference to the outer lexical environment, the one associated with the outer code.
+
+//Step 1. Variables
+//A “variable” is just a property of the special internal object, Environment Record. “To get or change a variable” means “to get or change a property of that object”.
+
+
+//Step 2. Function Declarations
+/*
+A function is also a value, like a variable.
+
+The difference is that a Function Declaration is instantly fully initialized.
+
+When a Lexical Environment is created, a Function Declaration immediately becomes a ready-to-use function (unlike let, that is unusable till the declaration).
+
+That’s why we can use a function, declared as Function Declaration, even before the declaration itself.
+*/
+
+//Step 3. Inner and outer Lexical Environment
+//When a function runs, at the beginning of the call, a new Lexical Environment is created automatically to store local variables and parameters of the call.
+let phrase ="hello";
+function say(name){
+  alert('${phrase},${name}');
+}
+say("john");//hello,john
+/*
+During the function call we have two Lexical Environments: the inner one (for the function call) and the outer one (global):
+
+The inner Lexical Environment corresponds to the current execution of say. It has a single property: name, the function argument. We called say("John"), so the value of the name is "John".
+The outer Lexical Environment is the global Lexical Environment. It has the phrase variable and the function itself.
+
+The inner Lexical Environment has a reference to the outer one.
+
+When the code wants to access a variable – the inner Lexical Environment is searched first, then the outer one, then the more outer one and so on until the global one.
+
+If a variable is not found anywhere, that’s an error in strict mode (without use strict, an assignment to a non-existing variable creates a new global variable, for compatibility with old code).
+
+In this example the search proceeds as follows:
+
+For the name variable, the alert inside say finds it immediately in the inner Lexical Environment.
+When it wants to access phrase, then there is no phrase locally, so it follows the reference to the outer Lexical Environment and finds it there.
+*/
+
+//Step 4. Returning a function
+
+//Let’s return to the makeCounter example.
+function makeCounter() {
+  let count = 0;
+
+  return function() {
+    return count++;
+  };
+}
+
+let counter1 = makeCounter();
+//At the beginning of each makeCounter() call, a new Lexical Environment object is created, to store variables for this makeCounter run.
+
+//the  difference is that, during the execution of makeCounter(), a tiny nested function is created of only one line: return count++. We don’t run it yet, only create.
+//All functions remember the Lexical Environment in which they were made. Technically, there’s no magic here: all functions have the hidden property named [[Environment]], that keeps the reference to the Lexical Environment where the function was created:
+
+/*
+So, counter.[[Environment]] has the reference to {count: 0} Lexical Environment. That’s how the function remembers where it was created, no matter where it’s called. The [[Environment]] reference is set once and forever at function creation time.
+
+Later, when counter() is called, a new Lexical Environment is created for the call, and its outer Lexical Environment reference is taken from counter.[[Environment]]:
+Now when the code inside counter1() looks for count variable, it first searches its own Lexical Environment (empty, as there are no local variables there), then the Lexical Environment of the outer makeCounter() call, where it finds and changes it.
+*/
+
+
